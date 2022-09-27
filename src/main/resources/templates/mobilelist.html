@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mobilelist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Laitteet</h1> 
+	<table class="table table-striped">
+		<tr>
+			<th>Laite</th>
+			<th>Malli</th>
+			<th>Yhteys</th>
+			<th>Muisti</th>
+			<th>Väri</th>
+		</tr>
+			<tr th:each = "mobile : ${mobiles}">
+			<td th:text="${mobile.laite}"></td>
+			<td th:text="${mobile.malli}"></td>
+			<td th:text="${mobile.yhteys}"></td>
+			<td th:text="${mobile.muisti}"></td>
+			<td th:text="${mobile.vari}"></td>
+			<td th:text="${mobile.type.name}"></td>
+			
+			<td><a th:href="@{/edit/{id}(id=${mobile.id})}">Muokkaa</a></td>
+			<td><a th:href="@{/delete/{id}(id=${mobile.id})}">Poista</a></td>
+			</tr>
+	</table>
+	
+	<a href="/add" class="btn btn-primary">Lisää</a>
+		
+</body>
+</html>

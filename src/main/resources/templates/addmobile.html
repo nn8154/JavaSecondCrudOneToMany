@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mobilelist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add mobile</h1>
+	<div>
+		<form th:object="${mobile}" th:action="@{save}" action="#" method="post">
+		
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="laite">Laite</label>
+			<input type="text" id="laite" th:field="*{laite}" />
+			
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="malli">Malli</label>
+			<input type="text" id="malli" th:field="*{malli}" />
+			
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="yhteys">Yhteys</label>
+			<input type="text" id="yhteys" th:field="*{yhteys}" />
+			
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="muisti">Muisti</label>
+			<input type="text" id="muisti" th:field="*{muisti}" />
+			
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="vari">Väri</label>
+			<input type="text" id="vari" th:field="*{vari}" />
+			
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="typelist">Type</label>
+			 <select id="typelist" th:field="*{type}" class="form-control">
+       			<option th:each="type: ${types}" th:value="${type.typeid}" th:text="${type.name}"></option>
+    		</select>
+			
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save"></input>
+			
+		</form>
+	</div>
+</body>
+</html>
