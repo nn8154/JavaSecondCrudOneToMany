@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Devices</title>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	
+</head>
+<body>
+
+	<h3 th:text="'Tervetuloa Tietotekniikka kauppaan'" />
+
+	<h3 th:text="'Laitteet, ensimmäinen tapa'" />
+
+	<p th:text="${device1.laite}" />
+	<p th:text="${device2.laite}" />
+	<p th:text="${device3.laite}" />
+
+
+
+	<p th:text="'Laitteet, toinen tapa'" />
+	<table>
+		<tr th:each="device : ${deviceList}">
+			<td th:text="${device.laite}"></td>
+			<td th:text="${device.malli}"></td>
+			<td th:text="${device.yhteys}"></td>
+			<td th:text="${device.muisti}"></td>
+			<td th:text="${device.vari}"></td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

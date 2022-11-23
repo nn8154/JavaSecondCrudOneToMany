@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Edit</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
-	<h1>Edit mobile</h1>
+	<h3>Edit mobile</h3>
 	<div>
 	<form th:object="${mobile}" th:action="@{../save}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}" class="form-control"/>
@@ -37,7 +38,7 @@
     		</select>
 			
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<input type="submit" value="Save"></input>
+			<input type="submit" value="Save" class="btn btn-primary"></input>
 	</div>
 
  	

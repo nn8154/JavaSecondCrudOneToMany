@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+	<title>Laitteiden lista</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<h3>Laitteet</h3>
+	<table>
+        <tr th:each="device2 : ${devicesList2}">
+            <td th:text="${device2.laite}"></td>
+            <td th:text="${device2.malli}"></td>
+            <td th:text="${device2.yhteys}"></td>
+            <td th:text="${device2.muisti}"></td>
+            <td th:text="${device2.vari}"></td>
+        </tr>
+    </table>
+    
+    <h1>Lisää uusi laite</h1>
+ 	<form action="#" th:action="@{/device2}" th:object="${device2}" method="post"> 
+		<p>Laite: <input type="text" th:field="*{laite}" /></p>
+		<p>Malli: <input type="text" th:field="*{malli}" /></p>
+		<p>Yhteys: <input type="text" th:field="*{yhteys}" /></p>
+		<p>Muisti: <input type="text" th:field="*{muisti}" /></p>
+		<p>Väri: <input type="text" th:field="*{vari}" /></p>
+		<p>
+			<input type="submit" value="Submit" class="btn btn-primary"/>
+		</p>
+      </form>
+	</body>
+</html>

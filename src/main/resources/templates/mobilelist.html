@@ -1,11 +1,27 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Mobilelist</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
+
 <body>
-	<h1>Laitteet</h1> 
+
+<div class="container">
+	<div class="col-md-4">
+		<h2>Laitteet</h2>
+	</div>
+	<div class="col-md-4">
+		<h4 th:inline="text">Tervetuloa [[${#httpServletRequest.remoteUser}]]</h4>
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+	</div>
+	
+	
 	<table class="table table-striped">
 		<tr>
 			<th>Laite</th>
@@ -13,6 +29,7 @@
 			<th>Yhteys</th>
 			<th>Muisti</th>
 			<th>Väri</th>
+			<th>Tyyppi</th>
 		</tr>
 			<tr th:each = "mobile : ${mobiles}">
 			<td th:text="${mobile.laite}"></td>
@@ -22,8 +39,8 @@
 			<td th:text="${mobile.vari}"></td>
 			<td th:text="${mobile.type.name}"></td>
 			
-			<td><a th:href="@{/edit/{id}(id=${mobile.id})}">Muokkaa</a></td>
-			<td><a th:href="@{/delete/{id}(id=${mobile.id})}">Poista</a></td>
+			<td><a th:href="@{/edit/{id}(id=${mobile.id})}" class="btn btn-primary">Muokkaa</a></td>
+			<td sec:authorize="hasRole('ADMIN')"><td><a th:href="@{/delete/{id}(id=${mobile.id})}" class="btn btn-danger">Poista</a></td>
 			</tr>
 	</table>
 	

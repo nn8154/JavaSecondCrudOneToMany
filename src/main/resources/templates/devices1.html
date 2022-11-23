@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Laitteiden lisäys</title>
+	<meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<h3 th:text="'Uudet laitteet'" />
+
+	<table>
+		<tr th:each="device : ${devices}">
+			<td th:text="${device}"></td>
+		</tr>
+	</table>
+	
+
+	<form action="#" th:action="@{/device1}">
+		<input type="text" th:name="nimi"/>
+		<input type="submit" value="Submit" class="btn btn-primary"/>
+	</form>
+
+</body>
+</html>

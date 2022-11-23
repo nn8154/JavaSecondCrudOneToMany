@@ -15,7 +15,6 @@ import haagahelia.fi.mobileDatabase.domain.TypeRepository;
 
 
 
-
 @SpringBootApplication
 public class mobileDatabaseApplication {
 	private static final Logger log = LoggerFactory.getLogger(mobileDatabaseApplication.class);
